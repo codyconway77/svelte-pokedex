@@ -23,17 +23,19 @@
     {#await currentPokeman}
         Loading...
     {:then currentPokeman} 
-        <div class="flex flex-wrap flex-col w-8/12 justify-around content-around bg-slate-400 rounded">
-            <p>ID: {currentPokeman.id}</p>
-            <p>Name: {currentPokeman.name}</p>
-            {#each currentPokeman.types as type}
-                <p class="mx-1">
-                    Type: {type.type.name}
-                </p>    
-            {/each}
-            <p>Height: {currentPokeman.height}</p>
-            <p>Weight: {currentPokeman.weight}</p>
-            <img src={currentPokeman.image} alt={currentPokeman.name}>
+        <div class="grid grid-cols-2 content-center justify-center w-8/12 bg-slate-400 rounded">
+            <div class="flex flex-col pl-8 content-between gap-6">
+                <p class="font-bold">ID: {currentPokeman.id}</p>
+                <p class="font-bold text-xl">Name: {currentPokeman.name}</p>
+                {#each currentPokeman.types as type}
+                    <p class="mx-1">
+                        Type: {type.type.name}
+                    </p>    
+                {/each}
+                <p>Height: {currentPokeman.height}</p>
+                <p>Weight: {currentPokeman.weight}</p>
+            </div>
+            <img class="justify-self-center w-4/6" src={currentPokeman.image} alt={currentPokeman.name}>
         </div>
     {/await}
 </div>
